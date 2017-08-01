@@ -21,48 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class TestController {
 
-    @RequestMapping("index")
-    @ResponseBody
-    public ModelAndView add(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("test");
-        return modelAndView;
-    }
 
-    @RequestMapping("index2")
-    public ModelAndView add2(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("test");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "test", method = RequestMethod.GET)
-    @ResponseBody
-    public String welcome(){
-        return "test";
-    }
-
-    @RequestMapping(value = "test2", method = RequestMethod.GET)
-    public String welcome2(){
-        return "test";
-    }
-
-    @Autowired
-    SysMenuMapper sysMenuMapper;
-
-    @RequestMapping(value = "query", method = RequestMethod.GET)
-    public ModelAndView query(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("test");
-
-        modelAndView.addObject("key","value-zemal");
-        SysMenu sysMenu = new SysMenu();
-        sysMenu.setName("testMenu2");
-
-
-        sysMenuMapper.insert(sysMenu);
-
-        return modelAndView;
-    }
 
 }
