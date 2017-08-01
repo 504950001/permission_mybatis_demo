@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--<classPathEntry location="lib/mysql-connector-5.1.8.jar" />   -->   <!--maven已经注入-->
+
+
+
+    <context id="MySqlTables" targetRuntime="MyBatis3">
+
+        <property name="javaFileEncoding" value="UTF-8" />
+
+        <commentGenerator>
+            <!--  关闭自动生成的注释  -->
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+
+        <!--配置数据库链接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost/permission_mybatis?characterEncoding=utf8"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+
+        <!--配置实体bean-->
+        <javaModelGenerator targetPackage="cn.kingfeeling.model"
+                            targetProject="src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--配置实体bean的sql.xml-->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--配置实体map接口（dao）-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="cn.kingfeeling.mapper"
+                             targetProject="src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!--配置实体-->
+
+        <table tableName="sys_menu"></table>
+
+        <!--<table tableName="sys_department"></table>-->
+        <!--<table tableName="sys_department_children"></table>-->
+        <!--<table tableName="sys_menu"></table>-->
+        <!--<table tableName="sys_menu_children"></table>-->
+        <!--<table tableName="sys_permission"></table>-->
+        <!--<table tableName="sys_role"></table>-->
+        <!--<table tableName="sys_role_permission"></table>-->
+        <!--<table tableName="sys_user"></table>-->
+        <!--<table tableName="sys_role"></table>-->
+
+    </context>
+</generatorConfiguration>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE generatorConfiguration-->
+        <!--PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"-->
+        <!--"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">-->
+
+<!--<generatorConfiguration>-->
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <!--<context id="DB2Tables" targetRuntime="MyBatis3">-->
+        <!--<jdbcConnection driverClass="COM.ibm.db2.jdbc.app.DB2Driver"-->
+                        <!--connectionURL="jdbc:db2:TEST"-->
+                        <!--userId="db2admin"-->
+                        <!--password="db2admin">-->
+        <!--</jdbcConnection>-->
+
+        <!--<javaTypeResolver >-->
+            <!--<property name="forceBigDecimals" value="false" />-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="test.domain" targetProject="\MBGTestProject\src">-->
+            <!--<property name="enableSubPackages" value="true" />-->
+            <!--<property name="trimStrings" value="true" />-->
+        <!--</javaModelGenerator>-->
+
+        <!--<sqlMapGenerator targetPackage="test.xml"  targetProject="\MBGTestProject\src">-->
+            <!--<property name="enableSubPackages" value="true" />-->
+        <!--</sqlMapGenerator>-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="test.dao"  targetProject="\MBGTestProject\src">-->
+            <!--<property name="enableSubPackages" value="true" />-->
+        <!--</javaClientGenerator>-->
+
+        <!--<table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+            <!--<ignoreColumn column="FRED" />-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+
+    <!--</context>-->
+<!--</generatorConfiguration>-->
