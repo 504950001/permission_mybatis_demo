@@ -1,5 +1,7 @@
 package cn.kingfeeling.controller;
 
+import cn.kingfeeling.mapper.SysMenuMapper;
+import cn.kingfeeling.model.SysMenu;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,11 +47,22 @@ public class TestController {
         return "test";
     }
 
-
+    @Autowired
+    SysMenuMapper sysMenuMapper;
 
     @RequestMapping(value = "query", method = RequestMethod.GET)
-    public String query(){
-        return "test";
+    public ModelAndView query(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("test");
+
+        modelAndView.addObject("key","value-zemal");
+        SysMenu sysMenu = new SysMenu();
+        sysMenu.setName("testMenu2");
+
+
+        sysMenuMapper.insert(sysMenu);
+
+        return modelAndView;
     }
 
 }
