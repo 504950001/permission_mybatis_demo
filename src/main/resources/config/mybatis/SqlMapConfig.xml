@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <!-- 开启驼峰命名转换:Table{create_time} -> Entity{createTime} -->
         <setting name="mapUnderscoreToCamelCase" value="true" />
 
-        <setting name="logImpl" value="LOG4J"/>
+        <setting name="logImpl" value="LOG4J2"/>
     </settings>
 
 	<!--&lt;!&ndash; 定义 别名 &ndash;&gt;-->

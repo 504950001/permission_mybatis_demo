@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="cn.kingfeeling.*"></context:component-scan>
 
@@ -20,6 +21,7 @@
     <!-- 1.配置数据库相关参数properties的属性：${url} -->
     <!-- 使用数据库配置文件解耦 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
+
 
     <!-- 下面的druid配置都是基本配置,具体优化设置可以上网查询,也可以去github上面直接搜索druid -->
     <!-- 2.数据库连接池 -->
@@ -88,5 +90,15 @@
     <!-- 配置基于注解的声明式事务 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
+    <!--================================以下为数据库配置========================================== -->
+    <!-- 配置权限拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截那些url的请求 -->
+            <mvc:mapping path="/**" />
+            <!-- 由那个拦截器处理拦截 -->
+            <bean class="cn.kingfeeling.interceptor.AuthInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

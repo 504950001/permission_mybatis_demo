@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World! in web-inf</h2>
+<h2>Hello World! index</h2>
 </body>
 </html>

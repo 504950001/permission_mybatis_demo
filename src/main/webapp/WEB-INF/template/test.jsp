@@ -5,5 +5,6 @@
 <%= (String) request.getAttribute("key")%>
 姓名：${key}
 <input type="button" value="${key}" id="method1">
+<h1><%= request.getAttribute("result")%></h1>
 </body>
 </html>
